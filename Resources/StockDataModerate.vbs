@@ -8,7 +8,7 @@ Sub StockDataModerate()
         Dim ticker As String
         Dim totalStocksVolume, closePrice, openPrice As Double
         totalStocksVolume = 0
-        
+        Dim r as Integer
 
         LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
         
