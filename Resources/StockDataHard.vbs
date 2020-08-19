@@ -1,4 +1,4 @@
-Sub StockDataModerate()
+Sub StockDataHard()
 
     
     For Each ws In Worksheets
@@ -76,8 +76,23 @@ Sub StockDataModerate()
             End If
                 
         Next i
-        
        
+        
+        'Setting Ticker for Greatest % increase,Greatest % decrease and Greatest Total Volume
+        For j = 2 To NewTableRow
+        
+        If Cells(j, 11).Value = Cells(2, 17) Then
+                Cells(2, 16).Value = Cells(j, 9).Value
+                
+        ElseIf Cells(j, 11).Value = Cells(3, 17).Value Then
+                Cells(3, 16).Value = Cells(j, 9).Value
+                
+        ElseIf Cells(j, 12).Value = Cells(4, 17).Value Then
+                Cells(4, 16).Value = Cells(j, 9).Value
+        End If
+        Next j
+
+   
     Next ws
     
 End Sub
