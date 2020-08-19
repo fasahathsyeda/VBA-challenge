@@ -76,7 +76,31 @@ Sub StockDataHard()
             End If
                 
         Next i
+
+        Dim GreatestIncrease, GreatestDecrease, GreatestTotalVolume As Double
+        Dim GreatestIncreaseTicker, GreatestDecreaseTicker, GreatestTotalVolumeTicker  As Integer
        
+        Range("O1").ColumnWidth = 22
+        Range("P1").Value = "Ticker"
+        Range("Q1").Value = "Value"
+        Range("Q1").ColumnWidth = 15
+        
+        Range("O2").Value = "Greatest % Increase"
+        GreatestIncrease = WorksheetFunction.Max(ws.Range("K2:K" & (NewTableRow - 1)))
+        Range("Q2").Value = GreatestIncrease
+        Range("Q2").Style = "Percent"
+        
+        
+        Range("O3").Value = "Greatest % Decrease"
+        GreatestDecrease = WorksheetFunction.Min(ws.Range("K2:K" & (NewTableRow - 1)))
+        Range("Q3").Value = GreatestDecrease
+        Range("Q3").Style = "Percent"
+        
+        
+        Range("O4").Value = "Greatest Total Volume"
+        GreatestTotalVolume = WorksheetFunction.Max(ws.Range("L2:L" & (NewTableRow - 1)))
+        Range("Q4").Value = GreatestTotalVolume
+        
         
         'Setting Ticker for Greatest % increase,Greatest % decrease and Greatest Total Volume
         For j = 2 To NewTableRow
