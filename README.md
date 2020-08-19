@@ -1,6 +1,19 @@
 # VBA-challenge
 VBA scripting of stock data
 
+## Summary
+
+* Visual Basic Script loops through three years of stock price data.
+* The script calculates metrics like total volume, annual change in dollar value, and annual percentage change in dollar value for each of the stocks across all three years.
+* The script also locates the stocks with the greatest annual percentage increases in value, greatest annual percentage decreases in value, and greatest total annual volumes.
+
+## Files
+
+* The alphabetical_testing.xlsm file in the "Resources" folder is the test data used for generating the scripts.
+* The Multiple_year_stock_data.xlsm file in the "Resources" folder is the stock data on which the scripts were run.
+* The StockDataEasy.vbs, StockDataModerate.vbs, StockDataHard.vbs are the Visual Basic Script Files
+* The images in the "Screenshots" folder are the images of the Stock Data file after running the above scripts.
+
 ## Background
 
 You are well on your way to becoming a programmer and Excel master! In this homework assignment you will use VBA scripting to analyze real stock market data. Depending on your comfort level with VBA, you may choose to challenge yourself with a few of the challenge tasks.
