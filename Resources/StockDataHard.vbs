@@ -76,47 +76,51 @@ Sub StockDataHard()
             End If
                 
         Next i
-
+        
+        
         Dim GreatestIncrease, GreatestDecrease, GreatestTotalVolume As Double
         Dim GreatestIncreaseTicker, GreatestDecreaseTicker, GreatestTotalVolumeTicker  As Integer
        
         Range("O1").ColumnWidth = 22
         Range("P1").Value = "Ticker"
         Range("Q1").Value = "Value"
-        Range("Q1").ColumnWidth = 15
+        Range("Q1").ColumnWidth = 18
         
+               
         Range("O2").Value = "Greatest % Increase"
         GreatestIncrease = WorksheetFunction.Max(ws.Range("K2:K" & (NewTableRow - 1)))
-        Range("Q2").Value = GreatestIncrease
-        Range("Q2").Style = "Percent"
-        
+        Range("Q2").Value = Format(GreatestIncrease, "Percent")
+        GreatestIncreaseTicker = WorksheetFunction.Match(Range("Q2").Value, Range("K2:K" & (NewTableRow - 1)), 0)
+        Range("P2").Value = Cells(GreatestIncreaseTicker + 1, 9).Value
         
         Range("O3").Value = "Greatest % Decrease"
         GreatestDecrease = WorksheetFunction.Min(ws.Range("K2:K" & (NewTableRow - 1)))
-        Range("Q3").Value = GreatestDecrease
-        Range("Q3").Style = "Percent"
-        
+        Range("Q3").Value = Format(GreatestDecrease, "Percent")
+        GreatestDecreaseTicker = WorksheetFunction.Match(Range("Q3").Value, Range("K2:K" & (NewTableRow - 1)), 0)
+        Range("P3").Value = Cells(GreatestDecreaseTicker + 1, 9).Value
         
         Range("O4").Value = "Greatest Total Volume"
         GreatestTotalVolume = WorksheetFunction.Max(ws.Range("L2:L" & (NewTableRow - 1)))
         Range("Q4").Value = GreatestTotalVolume
+        GreatestTotalVolume = WorksheetFunction.Match(Range("Q4").Value, Range("L2:L" & (NewTableRow - 1)), 0)
+        Range("P4").Value = Cells(GreatestTotalVolume + 1, 9).Value
+        
         
         
         'Setting Ticker for Greatest % increase,Greatest % decrease and Greatest Total Volume
-        For j = 2 To NewTableRow
+        'For j = 2 To NewTableRow
         
-        If Cells(j, 11).Value = Cells(2, 17) Then
-                Cells(2, 16).Value = Cells(j, 9).Value
+        'If Cells(j, 11).Value = Cells(2, 17) Then
+         '       Cells(2, 16).Value = Cells(j, 9).Value
                 
-        ElseIf Cells(j, 11).Value = Cells(3, 17).Value Then
-                Cells(3, 16).Value = Cells(j, 9).Value
+        'ElseIf Cells(j, 11).Value = Cells(3, 17).Value Then
+         '       Cells(3, 16).Value = Cells(j, 9).Value
                 
-        ElseIf Cells(j, 12).Value = Cells(4, 17).Value Then
-                Cells(4, 16).Value = Cells(j, 9).Value
-        End If
-        Next j
-
-   
+        'ElseIf Cells(j, 12).Value = Cells(4, 17).Value Then
+         '       Cells(4, 16).Value = Cells(j, 9).Value
+        'End If
+        'Next j
+    
     Next ws
     
 End Sub
