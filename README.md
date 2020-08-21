@@ -1,5 +1,5 @@
 # VBA-challenge
-VBA scripting of stock data
+VBA scripting of stock data by Syeda Fasahath Naaz.
 
 ## Summary
 
